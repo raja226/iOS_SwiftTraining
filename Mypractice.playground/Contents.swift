@@ -124,3 +124,167 @@ let animacount = 5
 print("there are \(animacount) animals in the park")
 
 
+let name1 = "John"
+print(#"Hello, \(name1)! How are you today?"#)
+
+//________________date formatt++++++++++++++++++++++++++++++
+let dateString = "2024-06-17T00:00:00"
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+if let date = dateFormatter.date(from: dateString) {
+    // Now 'date' contains the parsed date
+    // You can format it to your desired format
+    dateFormatter.dateFormat = "MMMM dd, yyyy 'at' HH:mm"
+    let formattedDate = dateFormatter.string(from: date)
+    print(formattedDate) // Output: "January 17, 2024 at 00:00"
+} else {
+    print("Failed to parse the date string")
+}
+
+//____________________________Optionals____________________
+//A representation of a value that may or may not have value
+/*
+ Int ? -> There may be an integer value or nill
+ String? -> there maybe an integer Value or nil
+ Bool? -> there maybe a boolean value or nill
+ ->it prevents runtime errors better and hepls with development .
+ 
+ Optional chnaing : Student?.name
+ Force UnWrapping : !
+ Conditional UNwrapping
+ if let name = student.name
+ {
+ }
+ ->Nill-coalescing operator ??
+ ->Shor-circuit evaluation
+ */
+var yourName:String?
+
+// Conditional Unwrapping
+yourName = "Gogula"
+if let namecheck = yourName
+{
+    print("Methode called")
+
+    print("name = \(namecheck)")
+}
+methodenameGuard()
+
+
+func methodenameGuard() {
+    guard let value = yourName  else {
+        return
+    }
+    print("Hello, \(yourName!)!")
+
+}
+
+//Nill Coalsed
+
+let nillcoaleased = yourName?.count ?? 0
+print(nillcoaleased)
+
+//Closures :
+
+/*
+ Closure: self - contained block of functionality
+ -Passed around and used in code
+ -Capture and stores constancts/valairable from the context
+ 
+ */
+
+var namesArray = [30,300,12,18,1,5]
+print(namesArray)
+
+namesArray.sort { s1, s2 in
+    return s1 > s2
+}
+
+print(namesArray)
+
+print(namesArray.sorted(by: >))
+
+//Making the Custum Error By using NSError [network Error ]
+let errorobj = NSError(domain: "network Error", code: 226, userInfo: ["Test" : "Man Made Error"])
+print(errorobj)
+//Clouser types :
+/*
+ Trainling clouser
+ 
+ */
+
+//String indices :
+
+var content  = "North America"
+let startindex = content.startIndex
+print("startindex : \(startindex)")
+print("startindexContent : \(content[startindex])")
+
+
+let endindex = content.endIndex
+print("end index : \(endindex)")
+//print("EndindexContent : \(content[endindex-1])")
+let beforeindex = content.index(before: endindex)
+print("beforeindex Content : \(content[beforeindex])")
+
+let offsetIndex = content.index(startindex, offsetBy: 4)
+
+print("offsetIndex Content : \(content[offsetIndex])")
+print("++++++++++++++Iterate over continent using indices+++++++++++++++++")
+
+for index in content.indices {
+    print("indices :\(content[index])")
+}
+
+print("---------------------------------")
+
+print("++++++++Insert character at the end of contient string")
+content.insert(":", at: content.endIndex)
+print("\(content)")
+
+print("++++++++remove character at the end of contient string")
+content.remove(at: content.index(before: content.endIndex))
+print("\(content)")
+
+print("---------------------------------")
+
+//String comparision
+print("++++++++String comparision++++++++")
+
+var lashuName = "Kavi"
+var kaviName = "Kavi"
+
+if lashuName == kaviName {
+    print(kaviName)
+
+}
+if lashuName != kaviName {
+    print(lashuName)
+}
+
+print("---------------------------------")
+
+//Prefix ,suffix check
+print("++++++++Prefix ,suffix check++++++++\n")
+
+
+var apDistricts = [ "Royal Tirupathi","Royal Kadapa","Royal Anathapur","Nellore kostha","amaravathi kostha" ,"telangana"]
+
+for districts in apDistricts {
+    
+    if districts.hasPrefix("Royal") {
+        print("\(districts) has the prefix of Royal")
+        
+    }else if districts.hasSuffix("kostha") {
+        print("\(districts) has the suffex of kostha")
+
+    }else
+    {
+        print("\(districts)")
+
+    }
+    
+}
+print("---------------------------------")
+
