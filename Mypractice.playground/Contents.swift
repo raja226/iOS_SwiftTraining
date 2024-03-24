@@ -269,14 +269,14 @@ print("---------------------------------")
 print("++++++++Prefix ,suffix check++++++++\n")
 
 
-var apDistricts = [ "Royal Tirupathi","Royal Kadapa","Royal Anathapur","Nellore kostha","amaravathi kostha" ,"telangana"]
+var apDistricts = [ "Royal Tirupathi","royal Kadapa","Royal Anathapur","Nellore kostha","amaravathi kostha" ,"telangana"]
 
 for districts in apDistricts {
     
-    if districts.hasPrefix("Royal") {
+    if districts.lowercased().hasPrefix("Royal".lowercased()) {
         print("\(districts) has the prefix of Royal")
         
-    }else if districts.hasSuffix("kostha") {
+    }else if districts.lowercased().hasSuffix("kostha".lowercased()) {
         print("\(districts) has the suffex of kostha")
 
     }else
@@ -287,4 +287,166 @@ for districts in apDistricts {
     
 }
 print("---------------------------------")
+
+//Collection:
+/*
+ A container contains different objects .
+ ->Arrays
+ ->Sets
+ ->Dictionaries
+ ->generic Collection
+ 
+ */
+//Array : ordered collection of objects of the same type ->[element],same value can be be reapeated multiple times.
+
+var citites :Array<String> =  []
+var districts :[String] = []
+var mycities = [String]()
+
+citites.append("Chennai")
+citites.append("Thiruvallure")
+
+print("\(citites)")
+
+for item in citites {
+    print(item)
+}
+
+districts.append("test1")
+districts.append("test2")
+
+print(districts)
+
+//districts = []
+print(districts.count)
+
+var street = Array( repeating: "Gogula", count: 10)
+print(street)
+
+var allresultArray = citites + districts + street
+
+print(allresultArray)
+
+var vegistable = ["Tamoto","cucumber","raw banana","potato"]
+
+print(vegistable)
+
+vegistable.append("brijal")
+
+vegistable += ["watermelon","bottlegurd"]
+print(vegistable)
+vegistable[0] = "rajasekhar"
+
+print(vegistable)
+if let value = vegistable.first
+{
+    print(value)
+
+}
+
+vegistable[2...4] = ["3veg","4veg","5veg"]
+
+print(vegistable)
+
+vegistable.insert("Apple", at: 0)
+
+print(vegistable)
+
+let removeElement = vegistable.remove(at: 0)
+print(removeElement)
+print(vegistable)
+//Iteration
+for (index, vegistableItem) in vegistable.enumerated()
+{
+    print("index =\(index), vegetable = \(vegistableItem)")
+}
+
+//Sets :
+
+/*
+ unordered collection of unique values/objects.
+ -type of objects should be hashable
+ -Set<Element>
+ -operations: intersection,union,symmetricDifference,subtracting
+ */
+
+var sports = Set<String>()
+
+print(sports)
+
+sports.insert("ball")
+sports.insert("cricket ball")
+sports.insert("valley ball")
+sports.insert("foot ball")
+sports.insert("zot ball")
+
+print(sports)
+print(sports.sorted())
+print(sports.min())
+print(sports.max())
+
+let oddNumbers: Set<Int> = [1,3,5,7,9]
+let evenNumbers: Set<Int> = [2,4,6,8,10]
+let unionSet = oddNumbers.union(evenNumbers)
+print("Union set = \(unionSet)")
+print("Union set = \(unionSet.sorted())")
+let intractionSet = oddNumbers.intersection(evenNumbers)
+print("intractionSet set = \(intractionSet)")
+
+
+let substrationset = oddNumbers.subtracting(evenNumbers)
+print("substrationset set = \(substrationset)")
+
+//Dictionary :
+
+/*
+ -Unorder collection of key value pairs
+ */
+var stundentidName: Dictionary<Int,String> = [:]
+stundentidName[1] = "Rajasekhar"
+stundentidName[2] = "gogula"
+stundentidName[3] = "Manohar"
+print(stundentidName)
+
+var zipcodeDict : [Int:String] = [:]
+zipcodeDict = [101: "Mango", 201:"Intdhumathi", 301: "Lovely"]
+print(zipcodeDict)
+if let oldvalue = zipcodeDict.updateValue("Raja", forKey: 101)
+{
+    print(oldvalue)
+}
+print(zipcodeDict)
+
+//Dict iteration :
+
+for (key ,value) in stundentidName {
+    print("key = \(key) and Value = \(value)")
+}
+
+for key in stundentidName.keys {
+    print("key = \(key)")
+
+}
+
+for value in stundentidName.values {
+    print("values = \(value)")
+
+}
+
+//Control flows :
+
+//for loop :
+
+let colors = ["orange","red","yellow","blue"]
+
+for c in colors {
+    print("c =\(c)")
+}
+
+for index in 1..<10 {
+    print(index)
+}
+
+let airportCodes = ["YUL":"Montreal", "SFO":" san"]
+
 
