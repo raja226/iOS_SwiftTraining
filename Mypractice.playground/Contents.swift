@@ -449,4 +449,130 @@ for index in 1..<10 {
 
 let airportCodes = ["YUL":"Montreal", "SFO":" san"]
 
+for (key,items) in airportCodes {
+    print("\(airportCodes) \(items)")
+}
+
+for _ in 1...5 {
+    print("Hello")
+}
+
+for i in stride(from: 0, to: 10, by: 2)
+{
+    print("i = \(i)")
+}
+print("-----------------")
+
+for j in stride(from: 0, to: 100, by: 10)
+{
+    print("j = \(j)")
+
+}
+
+//While :
+var randomNumber = 2
+
+while (randomNumber%2  == 0)
+{
+    randomNumber = Int.random(in: 0...100)
+
+    print("randomNumber = \(randomNumber)")
+}
+
+var countValue = 0
+
+repeat {
+    countValue += 1
+    print(" repeate =\(countValue)")
+}
+while countValue < 5
+
+    print("while loop countvalue =\(countValue)")
+
+        
+countValue = 10
+if (countValue > 0) {
+    
+}else
+{
+    
+}
+var whilecount = 0
+while (whilecount < 10)
+{
+    print("while= \(whilecount)")
+    whilecount += 1
+    
+}
+
+//Switch:
+var switchvalue = 9
+switch switchvalue  {
+case ..<10:
+    //statement
+    print("case a = \(switchvalue)")
+case 10..<20:
+    //Statement
+    print("case b = \(switchvalue)")
+
+case 20..<50:
+    //ststement
+    print("case c = \(switchvalue)")
+
+default:
+    print("default = \(switchvalue)")
+}
+
+let character:Character = "A"
+switch character
+{
+case "a":
+    print("case a = \(character)")
+case "b":
+    print("case b = \(character)")
+default:
+    print("case default = \(character)")
+
+}
+
+//Switch statement : tuples
+let coordinate = (2,0)
+
+switch coordinate {
+case (0,0):
+    print("orign coordinate ")
+case (_,0):
+    print("x coordinate ")
+case (0,_):
+    print("y coordinate ")
+default:
+    print("any other coordinates")
+}
+
+//Value Binding :
+switch coordinate {
+case (0,0):
+    print("orign coordinate ")
+case (let x,0):
+    print("x coordinate :\(x) ")
+case (0,let y):
+    print("y coordinate =\(y)")
+default:
+    print("any other coordinates")
+}
+
+//where clause
+
+switch coordinate {
+case (let x,let y) where x == y:
+    print("orign coordinate ")
+case (let x,let y) where x > y:
+    print("x coordinate :(x > y) ")
+case (let x,let y) where x < y:
+    print("y coordinate =(x < y)")
+default:
+    print("any other coordinates")
+}
+
+//compund cases:
 
