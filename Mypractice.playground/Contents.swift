@@ -899,6 +899,300 @@ enum Direction: CaseIterable
 }
 
 print(Direction.allCases)
+
+func substatcteTwonumbers(number1:Int, number2:Int) -> Int {
+    return number1 - number2
+}
+
+
+var substarct: (Int, Int) ->Int = substatcteTwonumbers
+
+let substratctresult = substarct(10,4)
+
+print(substratctresult)
+
+//Nested function :
+
+func highLevelFunction(number1:Int, number2:Int) ->Int
+{
+    func addSumofATwoNumbers(num1:Int, num2:Int) -> Int
+    {
+       return num1 + num2
+    }
+    
+    return addSumofATwoNumbers(num1: number1, num2: number2)
+}
+
+print(highLevelFunction(number1: 10, number2: 20))
+
+//Sort the array
+
+var arraytoSort:Any = [6,9,10,12,2,"4","0"]
+
+func sortthearray(array:Any) -> [Int]
+{
+    var interger:[Int] = []
+    
+    guard let array = array as? [Any] else
+    {
+        return []
+    }
+    
+    for item in array {
+        
+        if let value = item as? Int {
+            interger.append(value)
+        }
+        
+        if let stringvalue = item as? String, let intvalue = Int(stringvalue) {
+            interger.append(intvalue)
+            
+        }
+    }
+    
+    return interger.sorted()
+}
+
+var resultArray = sortthearray(array: arraytoSort)
+print("+++++++\(resultArray)++++++")
+
+
+//Escaping Closures
+/*
+ - closure is executed later,after function returns
+ - e.g there maybe an asynchonus API call that comes back later and
+ - closure is excuted at that time.
+ 
+ */
+loadstudents(studentid: 20) { result in
+    print("result:\(result)")
+}
+
+func loadstudents(studentid: Int , completionhandlermethode: @escaping(([String]) -> Void))
+{
+    print("strudentid:\(studentid)")
+    DispatchQueue.global().async {
+        completionhandlermethode(["Rajasekhar","Kavisree","Lashwin","Indhumathi","Veeramma","Manohar"])
+
+    }
+}
+
+
+let myIntNumbers = [1,2,3,4,5,6]
+let resultMap = myIntNumbers.map { value in
+    value * 3
+}
+
+print(resultMap)
+
+let sortMyArray = myIntNumbers.sorted { $0 > $1 }
+
+print(sortMyArray)
+
+let evennumber = myIntNumbers.filter { $0 % 2 == 0
+}
+print(evennumber)
+
+//reduce iterates over the elements of a collection and combines them into a single value.
+
+
+let sumofnumber = myIntNumbers.reduce(0) { (result,nextvalue) in
+    
+    result + nextvalue
+    
+}
+
+print("sumofnumber:\(sumofnumber)")
+
+//Compact map:
+
+let strings = ["1", "two", "3", "4", "five"]
+let numbers = strings.compactMap { Int($0) }
+print(numbers) //
+
+
+//Enum: group of related values together .
+//type safe
+//case can have Int, String ,Double,Float type
+//CaseIterable
+
+enum Color
+{
+    case red
+    case green
+    case blue
+}
+
+var colObj = Color.blue
+
+switch colObj
+{
+case .red:
+    
+    print("red")
+case .blue:
+    print("blue")
+    
+case .green:
+    print("green")
+    
+}
+
+//iteration over enum cases :
+enum SundayMeal: CaseIterable
+{
+    case chicken
+    case mutton
+    case fish
+}
+
+var sundayObj:SundayMeal = .fish
+
+for m in SundayMeal.allCases
+{
+    print("item = \(m)")
+}
+
+enum Romam: Int
+{
+    case vada = 1
+    case bada = 2
+    case soda = 3
+}
+
+var robj = Romam.soda
+print(robj)
+print(robj.rawValue)
+
+
+//Class Vs Struct
+//- class referance type
+//class - inheritance  from another class
+//class typecasting,deinitializers,reference counting,objc - interoprability
+
+//struct passed by value,memberwise initializer
+
+struct Student {
+    var id: Int {
+        didSet
+        {
+            print("the old value is:\(oldValue) and new :\(id)")
+        }
+    }
+    var name: String
+    
+    
+    func update() {
+        print("Update")
+    }
+}
+
+class University {
+    var id: Int
+    var name: String
+    var student:[Student] = []
+    
+    init(id: Int, name: String , student:[Student]) {
+        self.id = id
+        self.name = name
+        self.student = student
+    }
+    
+    func someMethode() {
+        print("super class someMethode")
+    }
+}
+
+
+var studentObj = Student(id: 26, name: "gogula")
+print(studentObj.name)
+studentObj.id = 0006
+var studentCopyObj = studentObj
+
+studentCopyObj.name = "raja"
+print(studentCopyObj.name)
+
+print(studentObj.name)
+
+
+var universityObj = University(id: 226, name: "Gogula", student: [studentObj])
+
+print(universityObj.name)
+
+var copyuniversityObj = universityObj
+
+copyuniversityObj.name = "Refreancechange"
+print(universityObj.name)
+
+print(copyuniversityObj.name)
+
+//computed property:
+var description :String {
+    return "the Person"
+}
+
+//Inheritance:
+
+class zonal: University {
+    var district: String
+     init(district: String,id: Int, name: String, student: [Student]) {
+         self.district = district
+         super.init(id: id, name: name, student: student)
+    }
+    override func someMethode() {
+        super.someMethode()
+    }
+  
+}
+
+// Define some students
+let students = [Student]()
+
+let zonalObject = zonal(district: "YourDistrict", id: 123, name: "YourUniversityName", student: students)
+
+print(zonalObject.someMethode())
+
+//Tuple:
+
+let persontouple: (Int, Int ) = (10,05)
+print("\(persontouple.0) and \(persontouple.1)")
+
+var a = 100
+var b = 200
+
+(a,b) = (b,a)
+
+print("a  value :\(a)")
+print("b  value :\(b)")
+
+
+a = 100
+b = 200
+
+a = a + b
+b = a - b
+a = a - b
+
+print("a= \(a) and b= \(b)")
+
+//Final : we are unable to use in other class
+
+//Property Observer : didset,willset
+
+
+
+
+//-classes to use methods,properties from another calss
+//Autoclousers:
+/*
+ -Automatically wrap an expression
+ -Does not take the paramenters
+ -return a value of the expression
+ -braces can be omitted.
+ 
+ */
+
+//() ->Void\\\
 //@discardableResult
 
 /*
