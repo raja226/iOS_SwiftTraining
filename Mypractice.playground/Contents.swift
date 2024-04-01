@@ -167,7 +167,7 @@ yourName = "Gogula"
 if let namecheck = yourName
 {
     print("Methode called")
-
+    
     print("name = \(namecheck)")
 }
 methodenameGuard()
@@ -178,7 +178,7 @@ func methodenameGuard() {
         return
     }
     print("Hello, \(yourName!)!")
-
+    
 }
 
 //Nill Coalsed
@@ -258,7 +258,7 @@ var kaviName = "Kavi"
 
 if lashuName == kaviName {
     print(kaviName)
-
+    
 }
 if lashuName != kaviName {
     print(lashuName)
@@ -279,11 +279,11 @@ for districts in apDistricts {
         
     }else if districts.lowercased().hasSuffix("kostha".lowercased()) {
         print("\(districts) has the suffex of kostha")
-
+        
     }else
     {
         print("\(districts)")
-
+        
     }
     
 }
@@ -342,7 +342,7 @@ print(vegistable)
 if let value = vegistable.first
 {
     print(value)
-
+    
 }
 
 vegistable[2...4] = ["3veg","4veg","5veg"]
@@ -426,12 +426,12 @@ for (key ,value) in stundentidName {
 
 for key in stundentidName.keys {
     print("key = \(key)")
-
+    
 }
 
 for value in stundentidName.values {
     print("values = \(value)")
-
+    
 }
 
 //Control flows :
@@ -467,7 +467,7 @@ print("-----------------")
 for j in stride(from: 0, to: 100, by: 10)
 {
     print("j = \(j)")
-
+    
 }
 
 //While :
@@ -476,7 +476,7 @@ var randomNumber = 2
 while (randomNumber%2  == 0)
 {
     randomNumber = Int.random(in: 0...100)
-
+    
     print("randomNumber = \(randomNumber)")
 }
 
@@ -487,12 +487,12 @@ repeat {
     print(" repeate =\(countValue)")
 }
 while countValue < 5
-
-    print("while loop countvalue =\(countValue)")
-
         
-countValue = 10
-if (countValue > 0) {
+        print("while loop countvalue =\(countValue)")
+        
+        
+        countValue = 10
+        if (countValue > 0) {
     
 }else
 {
@@ -515,11 +515,11 @@ case ..<10:
 case 10..<20:
     //Statement
     print("case b = \(switchvalue)")
-
+    
 case 20..<50:
     //ststement
     print("case c = \(switchvalue)")
-
+    
 default:
     print("default = \(switchvalue)")
 }
@@ -533,7 +533,7 @@ case "b":
     print("case b = \(character)")
 default:
     print("case default = \(character)")
-
+    
 }
 
 //Switch statement : tuples
@@ -585,7 +585,7 @@ case "b" , "B":
     print("case b = \(character)")
 default:
     print("case default = \(character)")
-
+    
 }
 
 //Fallthrough: what is fallthrough
@@ -603,7 +603,7 @@ case  "D":
     print("case d= \(character)")
 default:
     print("case default = \(character)")
-
+    
 }
 
 
@@ -704,23 +704,23 @@ print(nameparam)
 sample()
 
 func sample() {
-   defer {
-       print("One")
-   }
+    defer {
+        print("One")
+    }
     defer {
         print("two")
     }
     defer {
         print("trhree")
     }
-   do {
-       print("txt")
-   }
+    do {
+        print("txt")
+    }
 }
 
 //Decorator patter:
 /*
-The decorator pattern is a structural design pattern used in software development to dynamically add new functionality to an object without altering its structure.
+ The decorator pattern is a structural design pattern used in software development to dynamically add new functionality to an object without altering its structure.
  
  It allows behavior to be added or removed from individual objects at runtime, providing greater flexibility than subclassing.
  
@@ -762,7 +762,7 @@ class ConcreteDecoratorA: Decorator {
     override func operation() -> String {
         return "ConcreteDecoratorA(" + super.operation() + ")"
     }
-
+    
 }
 
 // ConcreteDecoratorB adds different behavior to the Component
@@ -799,7 +799,7 @@ class PersonClass {
         self.age = age
     }
     
-  
+    
 }
 
 extension PersonClass {
@@ -859,7 +859,7 @@ infix operator +++: AdditionPrecedence
 
 func +++(value1:Int, value2:Int) -> Int
 {
-   return value1 + value2
+    return value1 + value2
 }
 
 let result =   5  +++ 3
@@ -867,7 +867,7 @@ print(result)
 
 func ***(value1:Int, value2:Int) -> Int
 {
-   return value1 * value2
+    return value1 * value2
 }
 
 let mutlipleresult =   5  *** 3
@@ -917,7 +917,7 @@ func highLevelFunction(number1:Int, number2:Int) ->Int
 {
     func addSumofATwoNumbers(num1:Int, num2:Int) -> Int
     {
-       return num1 + num2
+        return num1 + num2
     }
     
     return addSumofATwoNumbers(num1: number1, num2: number2)
@@ -973,7 +973,7 @@ func loadstudents(studentid: Int , completionhandlermethode: @escaping(([String]
     print("strudentid:\(studentid)")
     DispatchQueue.global().async {
         completionhandlermethode(["Rajasekhar","Kavisree","Lashwin","Indhumathi","Veeramma","Manohar"])
-
+        
     }
 }
 
@@ -1041,9 +1041,9 @@ case .green:
 //iteration over enum cases :
 enum SundayMeal: CaseIterable
 {
-    case chicken
-    case mutton
-    case fish
+case chicken
+case mutton
+case fish
 }
 
 var sundayObj:SundayMeal = .fish
@@ -1055,9 +1055,9 @@ for m in SundayMeal.allCases
 
 enum Romam: Int
 {
-    case vada = 1
-    case bada = 2
-    case soda = 3
+case vada = 1
+case bada = 2
+case soda = 3
 }
 
 var robj = Romam.soda
@@ -1135,14 +1135,14 @@ var description :String {
 
 class zonal: University {
     var district: String
-     init(district: String,id: Int, name: String, student: [Student]) {
-         self.district = district
-         super.init(id: id, name: name, student: student)
+    init(district: String,id: Int, name: String, student: [Student]) {
+        self.district = district
+        super.init(id: id, name: name, student: student)
     }
     override func someMethode() {
         super.someMethode()
     }
-  
+    
 }
 
 // Define some students
@@ -1207,9 +1207,118 @@ print("a= \(a) and b= \(b)")
 
 /*
  @objc dynamic and @Persisted are both property wrappers used in RealmSwift to define properties of Realm model objects. However, they have some differences in their usage and behavior:
-
--@objc dynamic is used to mark properties as dynamic, which allows Realm to observe and manage changes to these properties at runtime.
+ 
+ -@objc dynamic is used to mark properties as dynamic, which allows Realm to observe and manage changes to these properties at runtime.
  
  -@Persisted is a property wrapper introduced in newer versions of RealmSwift (such as RealmSwift 10.0.0 and above).
  It serves a similar purpose to @objc dynamic in that it marks properties as persistent and managed by Realm, but it provides additional features and benefits:
  */
+
+
+//Protocals:
+//-Blue print of functions and variable
+
+//Get and Set
+var myNumber: Int = 10
+var squareOfNumber: Int {
+    get
+    {
+        return myNumber
+    }
+    set(newValue)
+    {
+        myNumber = newValue * newValue
+    }
+}
+
+
+print(squareOfNumber)
+
+squareOfNumber = 5
+
+print(squareOfNumber)
+//mutating function is a method that is defined within a value type (such as a structure or enumeration) and is responsible for modifying the instance's properties. Value types are usually
+
+//Protocal
+
+protocol Vehicle {
+    var numberofWheels: Int
+    {
+        get
+    }
+    
+    mutating func start()
+}
+
+struct Car : Vehicle
+{
+    var speed :Double = 0
+    var numberofWheels: Int
+    {
+        return 4
+    }
+    
+    mutating func start() {
+        speed = 40
+        print("Car Start")
+        
+    }
+}
+
+
+var carObj = Car()
+
+print(carObj.numberofWheels)
+print(carObj.start())
+
+//Protocal Delegate Pattern:
+
+protocol ProtocalDelegatePattern: AnyObject
+{
+    func sendData(data:String)
+}
+
+class A
+{
+    weak var delegate:ProtocalDelegatePattern?
+    func somedatToClassB() {
+        delegate?.sendData(data: "Class A SendingData Hi Hello World!!")
+    }
+}
+
+class B: ProtocalDelegatePattern
+{
+    func sendData(data: String) {
+        print("CASS A Data:\(data)")
+    }
+    
+    func setup() {
+        let classA = A()
+        classA.delegate = self
+        
+        // Call the function in class A to trigger data sending
+        classA.somedatToClassB()
+        
+    }}
+
+var objectofB = B()
+objectofB.setup()
+
+// associatedtype PrintableType
+protocol PrintableProtocal
+{
+    associatedtype PrintableType
+    func printValue() -> PrintableType
+}
+
+class C: PrintableProtocal
+{
+    func printValue() -> Int {
+        //return "Hellow Printable"
+        return 226
+    }
+    
+}
+
+var objC = C()
+print(objC.printValue())
