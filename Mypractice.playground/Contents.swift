@@ -1,6 +1,8 @@
 import UIKit
 import OSLog
 import Foundation
+import Combine
+
 var greeting = "Hello, playground"
 
 //Print Staments :
@@ -1322,3 +1324,148 @@ class C: PrintableProtocal
 
 var objC = C()
 print(objC.printValue())
+
+//protocal inheritance :
+
+protocol Animal
+{
+    var name: String
+    {
+        get
+    }
+    func makeSound()
+}
+
+protocol Pet: Animal
+{
+    var owner: String
+    {
+        get
+    }
+    func play()
+}
+
+
+struct Dog: Pet
+{
+    var owner: String
+    
+    func play() {
+        print("play")
+    }
+    
+    var name: String
+    
+    func makeSound() {
+        print("makeSound")
+    }
+   
+}
+
+
+@objc protocol MYprotocalFlex {
+    var age:Int {
+        get
+    }
+   @objc optional func myname() ->String
+}
+
+class D: MYprotocalFlex
+{
+    var age: Int = 0
+    
+    func myname() -> String {
+        return "Veeramma"
+    }
+}
+
+var objofD =  D()
+
+print("\(objofD.age) and \(objofD.myname())")
+// Protocol composition: in Swift refers to the ability to combine multiple protocols into a single requirement.
+
+protocol Loggable {
+    func log()
+}
+
+protocol Sendable {
+    func send()
+}
+// Protocol composition: combining Loggable and Sendable protocols
+typealias LogAndSend = Loggable & Sendable
+
+// A class conforming to LogAndSend protocol
+class MessageSender: LogAndSend {
+    func log() {
+        print("Logging message")
+    }
+    
+    func send() {
+        print("Sending message")
+    }
+}
+
+//Protocol conformance: to check in iOS Swift refers to the process of determining whether a type conforms to a particular protocol.
+var messgeObj = MessageSender()
+if messgeObj is MYprotocalFlex
+{
+    print("MessageSender using this Loggable protocal")
+}else
+{
+    print("Not using ")
+}
+
+//Combine Swift
+
+let hellowPublisher = "Hello"
+let worldPublisher = "World"
+
+//combile the two string :
+
+// Create a publisher that emits integers from 1 to 5
+let publisher = (1...5).publisher
+
+// Subscribe to the publisher and print each emitted value
+let subscription = publisher.sink { value in
+    print(value)
+}
+
+
+// Define a complex array of arrays with mixed data types
+let complexArray: [[Any]] = [
+    [1, "apple", 3.14],
+    ["banana", true, 6],
+    [7.5, "orange", false],
+    [10, "grape", 12.34]
+]
+
+// Example 1: Flatten the array
+let flattenedArray = complexArray.flatMap { $0 }
+print("Flattened array: \(flattenedArray)")
+
+// Example 2: Filter strings containing "a"
+let filteredStrings = complexArray.flatMap { $0.compactMap { $0 as? String } }.filter { $0.contains("a") }
+print("Filtered strings: \(filteredStrings)")
+//["apple", "banana", "orange", "grape"]
+// Example 3: Map each element to its string representation
+
+//["1", "apple", "3.14", "banana", "true", "6", "7.5", "orange", "false", "10", "grape", "12.34"]
+let stringRepresentations = complexArray.flatMap { $0.map { String(describing: $0) } }
+print("String representations: \(stringRepresentations)")
+
+
+enum Result {
+    case success(Int)
+    case failure(String)
+}
+
+// Example usage
+let successResult = Result.success(42)
+let failureResult = Result.failure("An error occurred")
+
+switch failureResult {
+case .success(let value):
+    print("Success! Value is \(value)")
+case .failure(let error):
+    print("Failure! Error is \(error)")
+}
