@@ -1373,7 +1373,11 @@ struct Dog: Pet
 class D: MYprotocalFlex
 {
     var age: Int = 0
-    
+    var firstName:String?
+    var mycomputedproperty: String
+    {
+        return "Rajasekhar"
+    }
     func myname() -> String {
         return "Veeramma"
     }
@@ -1469,3 +1473,143 @@ case .success(let value):
 case .failure(let error):
     print("Failure! Error is \(error)")
 }
+
+
+
+extension D {
+    
+    func dataPrint() {
+        print(mycomputedproperty)
+        print(firstName ?? "GOGULA")
+    }
+}
+var objetest = D()
+
+objetest.dataPrint()
+
+
+
+class ComputedProperty
+{
+    var name:String?
+    init(name: String? = "GOGULA") {
+        self.name = name
+    }
+}
+extension ComputedProperty
+{
+    
+    var test:String
+    {
+        return "computed proper\(name ?? "")"
+    }
+}
+
+var obje1 = ComputedProperty()
+obje1.name = nil
+
+
+var banana:String?
+
+func somethingdo()
+{
+    //What are the optional wrapping techniques in swift
+    if let test = banana {
+      print("test")
+    }else
+    {
+        print("failure case of if let")
+    }
+    
+    
+    
+    banana = "Red banana"
+    guard let value = banana  else {
+        //preconditionFailure("Banna value nill")
+        return
+    }
+    print("value:\(value)")
+    
+    print("somethinggo remaining block of code")
+}
+somethingdo()
+
+struct CheckMutating
+{
+    var  a: Int = 0
+    var b: Int = 0
+    
+    mutating func caluculating(newvalueA:Int, newValueB:Int)
+    {
+        a += newvalueA
+        b += newValueB
+        print(a)
+        print(b)
+    }
+    
+}
+var objmute = CheckMutating(a: 2, b: 4)
+
+print(objmute.caluculating(newvalueA: 10, newValueB: 20))
+
+//Generic T Type:
+func genericFunction<T>(value:T) -> T
+{
+    print("genericFunction:+++\(value)")
+    return value
+}
+
+let val = genericFunction(value: "Heelo World")
+let numberValue = genericFunction(value: 226)
+
+print("val:\n\(val)")
+print("number:\n\(numberValue)")
+
+//Discadable result:
+/*
+ @discardableResult attribute is used in Swift to suppress the warning that occurs when a function's return value is not used. It indicates to the compiler that the return value of the function can be safely ignored by the caller.
+ */
+
+func testDiscardableResult(input:String) -> Bool
+{
+    print(input)
+    return true
+}
+
+testDiscardableResult(input: "discardableresult")
+
+class FileManager {
+    func deleteFile(named fileName: String) -> Bool {
+        print(fileName)
+       return true
+    }
+}
+
+let fileManager = FileManager()
+fileManager.deleteFile(named: "example.txt")
+print(fileManager.deleteFile(named: "example.txt"))
+
+//what is the result type:
+
+
+//enum Result<String,Error>
+//{
+//    case success(Success)
+//    case failure(Failure)
+//}
+
+
+//func fetchData() -> Result<String,Error>
+//{
+//    let sucess = true
+//    if sucess
+//    {
+//       return .success("Rajasekhar")
+//        
+//    }else
+//    {
+//       return .failure(NSError(domain: "DoamainError", code: 404))
+//    }
+//}
+
+
