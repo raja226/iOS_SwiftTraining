@@ -1649,5 +1649,81 @@ objclass.standaloneFunction()
 MyClass.classLevelFunction()
 MyClass.staticclassFunction()
 
+//Struct:
+struct Mystruct
+{
+    var age:Int?
+    var name:String?
+    
+    init(age: Int? = nil, name: String? = nil) {
+        self.age = age
+        self.name = name
+    }
+}
+var mystructObj = Mystruct()
+print(mystructObj.age)
+print(mystructObj.name)
+
+var mystructObj1 = Mystruct(age: 34, name: "Gogula" )
+
+if let name = mystructObj1.name
+{
+    print(name)
+
+}
+if let age = mystructObj1.age
+{
+    print(age)
+
+}
 
 
+//API Calling :
+//url: https://jsonplaceholder.typicode.com/todos
+
+//Codable Object makeing
+
+struct User : Codable
+{
+    var userId:Int
+    var id:Int
+    var title:String
+    var completed:Bool
+}
+typealias UserResponse = [User]
+
+let urlValue = URL(string: "https://jsonplaceholder.typicode.com/todos")
+
+func APIcalling(url:URL)
+{
+    let task = URLSession.shared.dataTask(with: url){ data,response,error in
+        
+        print(data)
+
+        // Check for errors
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+        
+        // Decode the JSON data into your data model
+            do {
+                print(data)
+
+                let usersResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                
+                print(usersResponse)
+                // Access the array of users
+                let users = usersResponse
+                for user in users {
+                    print("User ID: \(user.id), userId: \(user.userId), title: \(user.title)")
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+    }
+    
+    task.resume()
+}
+
+APIcalling(url: urlValue!)
