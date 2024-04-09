@@ -1613,3 +1613,41 @@ print(fileManager.deleteFile(named: "example.txt"))
 //}
 
 
+/// What is the differance between the Class func  vs  Static function  iOS
+class MyClass
+{
+    func standaloneFunction()
+    {
+        print("standaloneFunction")
+    }
+    
+    class func classLevelFunction()
+    {
+        print("classLevelFunction")
+
+    }
+    
+    static func staticclassFunction()
+    {
+        print("staticclassFunction")
+
+    }
+}
+
+class Myclass1: MyClass
+{
+    override class func classLevelFunction() {
+        print("Override the class level functon")
+    }
+}
+
+var objclass = MyClass()
+objclass.self
+
+objclass.standaloneFunction()
+
+MyClass.classLevelFunction()
+MyClass.staticclassFunction()
+
+
+
