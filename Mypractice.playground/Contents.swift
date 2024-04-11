@@ -1710,7 +1710,7 @@ func APIcalling(url:URL)
             do {
                 print(data)
 
-                let usersResponse = try JSONDecoder().decode(UserResponse.self, from: data)
+                let usersResponse = try JSONDecoder().decode([User].self, from: data)
                 
                 print(usersResponse)
                 // Access the array of users
@@ -1726,4 +1726,54 @@ func APIcalling(url:URL)
     task.resume()
 }
 
-APIcalling(url: urlValue!)
+//APIcalling(url: urlValue!)
+
+//Basic Enum
+
+enum CompasDirection
+{
+    case north
+    case south
+    case east
+    case west
+}
+
+var direction = CompasDirection.east
+print(direction)
+switch direction
+{
+case .east:
+    print("My house face in \(direction)")
+case .west:
+    print("My house face in \(direction)")
+case .south:
+    print("My house face in \(direction)")
+case .north:
+    print("My house face in \(direction)")
+
+}
+
+//Enum Assosate with Values
+enum Barcode
+{
+    case upc(Int, Int)
+    case qrcode(String)
+}
+
+//var enumobj =  Barcode.upc(10, 20)
+let enumobj = Barcode.qrcode("ABCDEFGHIJKLMNOP")
+
+enumoperation(response: enumobj)
+enumoperation(response: Barcode.upc(10, 20))
+
+func enumoperation(response: Barcode)
+{
+    switch response
+    {
+    case .upc(let no,let no1):
+        print("upc value \(no) and \(no1)")
+    case .qrcode(let namestring):
+        print("qrcode Values\(namestring)")
+    }
+}
+
