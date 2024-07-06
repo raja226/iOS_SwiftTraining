@@ -1777,3 +1777,32 @@ func enumoperation(response: Barcode)
     }
 }
 
+let comapactMapArray: [Any] = ["1","2",3,"four",5]
+
+//for earch :
+comapactMapArray.forEach { item in
+    print(item)
+}
+
+//CompactMap:
+let resultAy = comapactMapArray.compactMap{ Int("\($0)")}
+print(resultAy)
+//o/p:[1,2,3,5]
+//Map :
+let mapresult = resultAy.map { item in
+    item*2
+}
+//o/p: [2,4,6,10]
+print(mapresult)
+
+//String Array :
+let stringArray = ["Hello", " ", "World", "!"]
+let  resultReduce = stringArray.reduce("") { (result, next) in
+    return  result + next
+}
+print(resultReduce)
+
+//Int reduce
+let intArray = [1,2,3,4,5,6]
+
+//let reduceIntResult =
