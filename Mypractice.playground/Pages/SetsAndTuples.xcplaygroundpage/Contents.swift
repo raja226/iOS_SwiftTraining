@@ -28,3 +28,9 @@ print(courseTuple.qualify)
 print(courseTuple.0)
 print(courseTuple.1)
 print(courseTuple.2)
+
+var a = 10
+var b = 20
+
+(a,b) = (b, a)
+print("a:\(a) , b:\(b)")
