@@ -9,5 +9,7 @@
         <page name='OptionBinding'/>
         <page name='ArraysAndDictionaries'/>
         <page name='SetsAndTuples'/>
+        <page name='Conditions'/>
+        <page name='Functions'/>
     </pages>
 </playground>
