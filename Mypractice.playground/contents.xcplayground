@@ -4,5 +4,6 @@
         <page name='Variables'/>
         <page name='Learning'/>
         <page name='RangeOperator'/>
+        <page name='03 Strings'/>
     </pages>
 </playground>
