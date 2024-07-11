@@ -1,4 +1,4 @@
-
+import Foundation
 //its the builiding block of the code
 /*
  func functionName (parameters) -> retun type
@@ -36,7 +36,7 @@ var myClouser: () -> () = {
     
 }
 
-print(myClouser)
+print(myClouser())
 
 var numClosure:(Int) -> (Int) =
 {
@@ -47,3 +47,35 @@ var numClosure:(Int) -> (Int) =
 numClosure(2)
 print(numClosure(2))
 //clousers are the referance types .
+
+//var anotherClouser = {
+//    mynum in
+//    return mynum
+//}
+
+//clouser with only return type :
+
+var founder  = { () -> Int in
+    return 226
+    
+}
+
+print(founder())
+
+//a clouser with only parameter type
+
+var founderName = {
+    (name:String) in
+    print(name)
+}
+
+print(founderName("Rasekhar"))
+
+func fetchAPI( completion: @escaping (String) -> Void)
+{
+    completion("data dated")
+}
+
+fetchAPI { data in
+    print(data)
+}
