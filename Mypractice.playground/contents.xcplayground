@@ -5,5 +5,9 @@
         <page name='Learning'/>
         <page name='RangeOperator'/>
         <page name='03 Strings'/>
+        <page name='04 Conversions'/>
+        <page name='OptionBinding'/>
+        <page name='ArraysAndDictionaries'/>
+        <page name='SetsAndTuples'/>
     </pages>
 </playground>
