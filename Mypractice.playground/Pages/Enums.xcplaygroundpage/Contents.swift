@@ -56,6 +56,26 @@ enum Planet: Int {
 var planetObj = Planet.earth.rawValue
 
 print(planetObj)
+
+enum Gogula: CaseIterable
+{
+    case name,age,coffe
+    
+    func description() -> String {
+        switch self
+        {
+        case .age:
+            return "age"
+        case .name:
+            return "name"
+        case .coffe:
+            return "coffe"
+        }
+    }
+}
+
+var gogulObj = Gogula.name
+print(gogulObj.description())
 //recursion Enums :
 
 

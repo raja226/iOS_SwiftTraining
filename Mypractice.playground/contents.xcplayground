@@ -12,5 +12,8 @@
         <page name='Conditions'/>
         <page name='Functions'/>
         <page name='Enums'/>
+        <page name='Structs'/>
+        <page name='Classes'/>
+        <page name='Property'/>
     </pages>
 </playground>
