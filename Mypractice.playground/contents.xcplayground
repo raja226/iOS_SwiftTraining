@@ -11,5 +11,6 @@
         <page name='SetsAndTuples'/>
         <page name='Conditions'/>
         <page name='Functions'/>
+        <page name='Enums'/>
     </pages>
 </playground>
